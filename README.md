@@ -2,6 +2,8 @@
 cd /root
 mkdir code
 git clone https://github.com/Winspain/ai-admin.git
+cd /src
+pip install -r requirements.txt
 ```
 
 <h3>带日志</h3>  
