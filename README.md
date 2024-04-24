@@ -3,6 +3,7 @@ cd /root
 mkdir code
 git clone https://github.com/Winspain/ai-admin.git
 cd /src
+vim .env # add mysql password
 pip install -r requirements.txt
 ```
 
