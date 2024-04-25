@@ -1,16 +1,12 @@
 from fastapi import FastAPI, HTTPException
-from peewee import DoesNotExist
 
-from models import ChatGPTUser
-from scheme import TokenRequest
+from src.config import register_tortoise
+from src.routers import user_router
 
 app = FastAPI()
 
+# 数据库初始化
+register_tortoise(app)
 
-@app.post("/aixian/v1/user")
-async def get_user_expire_time(token_request: TokenRequest):
-    try:
-        user = ChatGPTUser.get(ChatGPTUser.userToken == token_request.userToken)
-        return {"userToken": user.userToken, "expireTime": user.expireTime}
-    except DoesNotExist:
-        raise HTTPException(status_code=404, detail="User not found")
+# 添加路由
+app.include_router(user_router.router)
