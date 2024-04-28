@@ -4,20 +4,15 @@
 mkdir /root/code && cd /root/code
 git clone https://github.com/Winspain/ai-admin.git
 vim /ai-admin/.env # add mysql password
-pip install -r /ai-admin/src/base.txt
-nohup /usr/local/bin/python3 -m uvicorn ai-admin.src.main:app --host 0.0.0.0 --port 60010 > /root/code/ai-admin/src/logfile.log 2>&1 &
-```
-
-<h3>With Log</h3>
-
-```shell
-nohup /usr/local/bin/python3 -m uvicorn src.main:app --host 0.0.0.0 --port 60010 > /root/code/ai-admin/src/logfile.log 2>&1 &
+cd /ai-admin/src
+pip install -r /requirements/base.txt
+nohup /usr/local/bin/python3 main.py > /root/code/ai-admin/src/logfile.log 2>&1 &
 ```
 
 <h3>Without Log</h3>
 
 ```shell
-nohup /usr/local/bin/python3 -m uvicorn src.main:app --host 0.0.0.0 --port 60010 > /dev/null 2>&1 &
+nohup /usr/local/bin/python3 main.py > /dev/null 2>&1 &
 ```
 
 <h3>Project Specification</h3>
@@ -37,11 +32,3 @@ nohup /usr/local/bin/python3 -m uvicorn src.main:app --host 0.0.0.0 --port 60010
     9. `exceptions.py` - module specific exceptions, e.g. `PostNotFound`, `InvalidUserData`
 3. When package requires services or dependencies or constants from other packages - import them with an explicit module
    name
-
-```python
-from src.auth import constants as auth_constants
-from src.notifications import service as notification_service
-from src.posts.constants import
-
-ErrorCode as PostsErrorCode  # in case we have Standard ErrorCode in constants module of each package
-```

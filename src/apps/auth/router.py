@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
 from tortoise.exceptions import DoesNotExist
 
-from src.models import ChatGPTUser
-from src.schemas import TokenRequest
+from common.models import ChatGPTUser
+from common.schemas import TokenRequest
 
 router = APIRouter()
 

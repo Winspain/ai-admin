@@ -25,7 +25,7 @@ def get_db_config():
         },
         'apps': {
             'models': {
-                'models': ['src.models'],
+                'models': ['common.models'],
                 'default_connection': 'default',
             }
         }
