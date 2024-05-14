@@ -3,8 +3,8 @@
 ```shell
 mkdir /root/code && cd /root/code
 git clone https://github.com/Winspain/ai-admin.git
-vim /ai-admin/.env # add mysql password
-cd /ai-admin/src
+vim ai-admin/.env # add mysql password
+cd ai-admin/src
 pip install -r /requirements/base.txt
 nohup /usr/local/bin/python3 main.py > /root/code/ai-admin/src/logfile.log 2>&1 &
 ```
